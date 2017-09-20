@@ -27,3 +27,8 @@ def variance(data):
 	
 def stdDeviation(data):
 	return math.sqrt(variance(data))
+    
+def confBoundarySigmaSq(conf, data, chi):
+    n = len(data)
+    a = 1-conf
+    return ((n-1) * variance(data)) / chi
