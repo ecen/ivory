@@ -28,7 +28,12 @@ def variance(data):
 def stdDeviation(data):
 	return math.sqrt(variance(data))
     
-def confBoundarySigmaSq(conf, data, chi):
+# Get chi from Table IV for gamma = n - 1. The distribution has n - 1 degrees of freedom.
+def confBoundarySigmaSq(chi, data):
     n = len(data)
-    a = 1-conf
     return ((n-1) * variance(data)) / chi
+    
+def confIntervalMean(t, data):
+    n = len(data)
+    x = mean(data)
+    return (x - (t * variance(data)) / math.sqrt(n), x + (t * variance(data)) / math.sqrt(n))

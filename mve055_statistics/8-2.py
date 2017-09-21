@@ -11,8 +11,8 @@ print("Mean: %.4f" %stat.mean(data))
 print("Variance: %.4f" %stat.variance(data))
 print("Std Dev: %.4f" %stat.stdDeviation(data))
 
-print("L1: %.4f" %stat.confBoundarySigmaSq(0.9, data, 43.8))
-print("L2: %.4f" %stat.confBoundarySigmaSq(0.9, data, 18.5))
+print("L1: %.4f" %stat.confBoundarySigmaSq(43.8, data))
+print("L2: %.4f" %stat.confBoundarySigmaSq(18.5, data))
 
-print("sqrt(L1): %.4f" %math.sqrt(stat.confBoundarySigmaSq(0.9, data, 43.8)))
-print("sqrt(L2): %.4f" %math.sqrt(stat.confBoundarySigmaSq(0.9, data, 18.5)))
+print("sqrt(L1): %.4f" %math.sqrt(stat.confBoundarySigmaSq(43.8, data)))
+print("sqrt(L2): %.4f" %math.sqrt(stat.confBoundarySigmaSq(18.5, data)))
