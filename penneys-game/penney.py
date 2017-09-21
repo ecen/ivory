@@ -1,24 +1,22 @@
 import random as rand
 
-k = 4;
+k = 7;
 
-a = [0,1,1,0]
-b = [1,0,0,1]
+a = [1,1,1,1,1,1,1]
+b = [0,1,1,1,0,0,0]
 history = []
 
 awins = 0
 bwins = 0
 
-for i in range(0, 1000000):
+for i in range(0, 1000):
     while (True):
         r = rand.randint(0,1)
         history.append(r)
-        if (len(history) >= 5):
-            history[0] = history[1]
-            history[1] = history[2]
-            history[2] = history[3]
-            history[3] = history[4]
-            history = history[0:4]
+        if (len(history) >= k+1):
+            for j in range(1, k+1):
+                history[j-1] = history[j]
+            history = history[0:k]
         #print(history)
         if (history == a):
             #print("A wins!")
