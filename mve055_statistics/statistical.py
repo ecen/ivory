@@ -33,7 +33,13 @@ def confBoundarySigmaSq(chi, data):
     n = len(data)
     return ((n-1) * variance(data)) / chi
     
+# Get t from T distribution (Table VI) for gamma = n - 1.
 def confIntervalMean(t, data):
     n = len(data)
     x = mean(data)
     return (x - (t * variance(data)) / math.sqrt(n), x + (t * variance(data)) / math.sqrt(n))
+    
+def confBoundMean(t, data):
+    n = len(data)
+    x = mean(data)
+    return (x - (t * stdDeviation(data)) / math.sqrt(n), x + (t * stdDeviation(data)) / math.sqrt(n))
