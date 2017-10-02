@@ -9,7 +9,7 @@ data = [21.9, 23.4, 22.1, 22.1, 24.7, 24.6,
 
 print("Nr of datapoints: %d" %len(data))
 print("Mean: %.4f" %stat.mean(data))        
-print("Variance: %.4f" %stat.variance(data))
+print("sampleVariance: %.4f" %stat.sampleVariance(data))
 print("Std Dev: %.4f" %stat.stdDeviation(data))
 
 chi1 = 48.3

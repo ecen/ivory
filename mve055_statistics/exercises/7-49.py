@@ -12,7 +12,7 @@ def mean(data):
 		sum += i;
 	return sum / len(data)
 
-def variance(data):
+def sampleVariance(data):
 	m = mean(data)
 	s2 = 0
 	n = len(data)
@@ -21,9 +21,9 @@ def variance(data):
 	return s2
 	
 def stdDeviation(data):
-	return math.sqrt(variance(data))
+	return math.sqrt(sampleVariance(data))
 
 print("Mean: " + str(mean(d1)))
-print("Var: " + str(variance(d1)))
+print("Var: " + str(sampleVariance(d1)))
 print("Standard Deviation: " + str(stdDeviation(d1)))
 #print(sorted(d1))

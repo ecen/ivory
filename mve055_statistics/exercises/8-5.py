@@ -5,7 +5,7 @@ data = [0.001, 0.002, 0.003, 0.002, 0.002, 0.007, 0.003, 0.004, 0.003, 0.006, 0.
 
 print("Nr of datapoints: %d" %len(data))
 print("Mean: %.4f" %stat.mean(data))        
-print("Variance: %.8f" %stat.variance(data))
+print("sampleVariance: %.8f" %stat.sampleVariance(data))
 print("Std Dev: %.4f" %stat.stdDeviation(data))
 
 chi1 = 15.7

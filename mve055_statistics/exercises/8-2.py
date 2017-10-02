@@ -8,7 +8,7 @@ data = [10.9, 1.7, 9.5, 2.9, 9.1, 3.2,
         9.6, 5.7, 2.6, 15.1, 2.9, 16.2]
 
 print("Mean: %.4f" %stat.mean(data))        
-print("Variance: %.4f" %stat.variance(data))
+print("sampleVariance: %.4f" %stat.sampleVariance(data))
 print("Std Dev: %.4f" %stat.stdDeviation(data))
 
 print("L1: %.4f" %stat.confBoundarySigmaSq(43.8, data))
