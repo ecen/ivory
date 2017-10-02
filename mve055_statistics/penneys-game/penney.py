@@ -62,11 +62,14 @@ def expectedTimes(a, s, n):
 	history = []
 	full_history = []
 	awins = 0
+	counter = 0
 	k = len(a)
 	for i in range(0, n):
-		for i in range(0, s):
+		for l in range(0, s):
 			#print(full_history)
 			r = rand.randint(0,1)
+			counter += 1
+			#print(len(history))
 			history.append(r)
 			full_history.append(r)
 			if (len(history) >= k+1):
@@ -75,10 +78,32 @@ def expectedTimes(a, s, n):
 				history = history[0:k]
 			if (history == a):
 				awins += 1
-		#print(full_history)
+				#print("%d: win" %counter)
+				print(":: " + str(history))
+			#elif (len(history) <= 3):
+			#	print("%d: ??" %counter)
+			#else:
+			#	print("%d: --" %counter)
 		full_history = []
 	return awins/n
-
+	
+def expectedTimes2(seq, k):
+	tr = 0
+	for i in range(0, k):
+		coinTosses = []
+		for j in range(0, 100):
+			r = rand.randint(0,1)
+			coinTosses.append(r)
+			#print(coinTosses)
+		for l in range(4,100+1):
+			curSeq = coinTosses[l-4:l]
+			#print(str(l) + " : " + str(curSeq))
+			if (curSeq == seq):
+				tr += 1
+				
+	#print("tr = " + str(tr))
+	#print(" k = " + str(k))
+	return tr/k
 
 #penneySim(a, b, 100000)
 #print("E[A]: %.3f" %getExpectedHistoryLength(a, 100000))
@@ -98,5 +123,5 @@ def binPlusOneList(list):
 			
 list = [0,0,0,0]
 for i in range(0, 16):
-	print(binPlusOneList(list))
-	print("Number of A on 100: %.3f" %expectedTimes(list, 100, 1000))
+	print("Current: " + str(binPlusOneList(list)))
+	print("Number of A on 100: %.3f" %expectedTimes2(list, 100000))
