@@ -40,6 +40,9 @@ lengths2 = []
 for cable in cableList:
 	if (cable.cableType == "B"):
 		lengths2.append(cable.length)
+		
+print(lengths1)
+print(lengths2)
 	
 def printStats(listA, t99, t95):
 	print("----------------------")
@@ -53,3 +56,7 @@ printStats(lengths1, 2.896, 1.860)
 printStats(lengths2, 2.567, 1.740)
 
 stat.wilcoxonRankSum(lengths1, lengths2)
+
+print("\nFor matlab: ")
+print(list(map(lambda c: c.length, cableList)))
+print(list(map(lambda c: c.diameter, cableList)))
