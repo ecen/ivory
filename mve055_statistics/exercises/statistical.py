@@ -52,11 +52,13 @@ def confBoundMean(t, data):
 	x = mean(data)
 	return (x - (t * stdDeviation(data)) / math.sqrt(n), x + (t * stdDeviation(data)) / math.sqrt(n))
 	
-def wilcoxonRankSum(As, Bs):
-	AAs = list(map(lambda x: (x, "A"), As))
-	BBs = list(map(lambda x: (x, "B"), Bs))
+def wilcoxonRankSum(As, Bs, aname, bname):
+	AAs = list(map(lambda x: (x, aname), As))
+	BBs = list(map(lambda x: (x, bname), Bs))
 	ABs = AAs + BBs
 	ABs.sort()
+	for i in range(0, len(ABs)):
+		print("{0}& {1}& {2} \\\\ \\hline".format(*[ABs[i][1].ljust(20), str(ABs[i][0]).ljust(10), str(i+1).ljust(10)]))
 	Wm = 0
 	if (len(As) < len(Bs)):
 		for i in range(0, len(ABs)):
