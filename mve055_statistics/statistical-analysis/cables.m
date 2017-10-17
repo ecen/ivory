@@ -1,5 +1,5 @@
 cla
-hold on
+hold off
 
 powerCables = [169, 199, 192, 241, 199, 200, 252, 201, 200];
 bananCables = [32, 112, 112, 58, 58, 57, 113, 112, 113, 112, 112, 112, 63, 59, 58, 59, 58, 54];
@@ -44,8 +44,39 @@ CoaxialD = [5.411268065124442, 5.411268065124442, 5.411268065124442, 5.092958178
 
 %scatter(lengths, diameters, 'MarkerEdgeColor', [0,0,0]);
 mdl = fitlm(lengths, diameters, 'VarNames', {'Length', 'Diameter'})
-coefCI(mdl)
+r = mdl.Residuals.Raw;
 plot(mdl)
+title('Cable Length vs Diameter',...
+    'FontUnits','points',...
+    'Interpreter', 'latex',...
+    'FontWeight','bold',...
+    'FontSize',18,...
+    'FontName','Times')
+ylabel({'Diameter ($mm)$'}, 'Interpreter', 'latex')
+xlabel('Length ($cm$)', 'Interpreter', 'latex')
+set(gca,...
+    'FontSize',12);
+ax = gca;
+ax.Box = 'off';
+print -depsc2 lengthVsDiameter.eps
+
+cla
+plot(lengths, mdl.Residuals.Raw, 'o')
+title('Cable Length vs Residual',...
+    'FontUnits','points',...
+    'Interpreter', 'latex',...
+    'FontWeight','bold',...
+    'FontSize',18,...
+    'FontName','Times')
+legend(['Residual'])
+ylabel({'Residual'}, 'Interpreter', 'latex')
+xlabel('Length ($cm$)', 'Interpreter', 'latex')
+%axis([0.01,0.05,0.21,0.22])
+set(gca,...
+    'FontSize',12);
+ax = gca;
+ax.Box = 'off';
+print -depsc2 lengthVsDiameterResiduals.eps
 
 %scatter(lengths, log(diameters), 'MarkerFaceColor', [0,0,1]);
 
@@ -61,18 +92,5 @@ plot(mdl)
 % scatter(CoaxialL, CoaxialD, 'MarkerFaceColor', [0.8,0.8,0.8]);
 %histogram2(lengths,diameters);
 
-title('Cable length vs diameter',...
-    'FontUnits','points',...
-    'Interpreter', 'latex',...
-    'FontWeight','bold',...
-    'FontSize',18,...
-    'FontName','Times')
-ylabel({'Diameter $(mm)$'}, 'Interpreter', 'latex')
-xlabel('Length $(cm)$', 'Interpreter', 'latex')
-%axis([0.01,0.05,0.21,0.22])
-set(gca,...
-    'FontSize',12);
-
 %Print to file
-print -depsc2 lengthVsDiameter.eps
 
