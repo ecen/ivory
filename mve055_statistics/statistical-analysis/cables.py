@@ -119,17 +119,17 @@ for cable in cableList:
 	elif (cable.cableType == "C"):
 		Cs.append(cable)
 		
-printData(Bs, "Banana")
-printData(Ps, "Power")
-printData(BCs, "BananaCoaxial")
-printData(CKs, "CrocodileCoaxial")
-printData(RVs, "RJ11DB89")
-printData(Us, "USB")
-printData(Vs, "VGA")
-printData(WVs, "DB9")
-printData(Es, "Ethernet")
-printData(Cs, "Coaxial")
+#printData(Bs, "Banana")
+#printData(Ps, "Power")
+#printData(BCs, "BananaCoaxial")
+#printData(CKs, "CrocodileCoaxial")
+#printData(RVs, "RJ11DB89")
+#printData(Us, "USB")
+#printData(Vs, "VGA")
+#printData(WVs, "DB9")
+#printData(Es, "Ethernet")
+#printData(Cs, "Coaxial")
 
-#print("\nFor LaTeX: ")
-#for c in cableList:
-#	print("{0}\t& {1}\t& {2:.1f}\t\\\\ \\hline".format(*[c.longType.ljust(20), c.length, c.diameter]))
+print("\nFor LaTeX: ")
+for c in cableList:
+	print("{0}\t& {1}\t& {2:.1f}\t\\\\ \\hline".format(*[c.longType.ljust(20), c.length, c.diameter]))

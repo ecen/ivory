@@ -42,7 +42,8 @@ CoaxialD = [5.411268065124442, 5.411268065124442, 5.411268065124442, 5.092958178
 
 
 
-%scatter(lengths, diameters, 'MarkerEdgeColor', [0,0,0]);
+scatter(lengths, diameters, 'MarkerEdgeColor', [0,0,0]);
+
 mdl = fitlm(lengths, diameters, 'VarNames', {'Length', 'Diameter'})
 r = mdl.Residuals.Raw;
 plot(mdl)
